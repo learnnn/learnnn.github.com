@@ -1,0 +1,520 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Hexo博客的搭建及遇到的问题 | Learnnn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="guang">
+    
+
+    
+    <meta name="description" content="Why Hexo　　Hexo正如其官网介绍：A fast, simple &amp;amp; powerful blog framework.简单，快捷，强大，它生成静态文件都是用毫秒为单位的。在用Hexo之前用过Wordpress，octopress等建博客，Wordpress插件丰富，可定制性高，可是感觉系统过于庞大，有很多用不着的功能。octopress我也是用在github上建过博客，相对Word">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo博客的搭建及遇到的问题">
+<meta property="og:url" content="http://learnnn.github.io/2015/04/28/Hexo博客的搭建及遇到的问题/index.html">
+<meta property="og:site_name" content="Learnnn">
+<meta property="og:description" content="Why Hexo　　Hexo正如其官网介绍：A fast, simple &amp;amp; powerful blog framework.简单，快捷，强大，它生成静态文件都是用毫秒为单位的。在用Hexo之前用过Wordpress，octopress等建博客，Wordpress插件丰富，可定制性高，可是感觉系统过于庞大，有很多用不着的功能。octopress我也是用在github上建过博客，相对Word">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo博客的搭建及遇到的问题">
+<meta name="twitter:description" content="Why Hexo　　Hexo正如其官网介绍：A fast, simple &amp;amp; powerful blog framework.简单，快捷，强大，它生成静态文件都是用毫秒为单位的。在用Hexo之前用过Wordpress，octopress等建博客，Wordpress插件丰富，可定制性高，可是感觉系统过于庞大，有很多用不着的功能。octopress我也是用在github上建过博客，相对Word">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Learnnn" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Learnnn" title="Learnnn"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Learnnn">Learnnn</a></h1>
+				<h2 class="blog-motto">Learner Never Narcissism</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:learnnn.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/04/28/Hexo博客的搭建及遇到的问题/" title="Hexo博客的搭建及遇到的问题" itemprop="url">Hexo博客的搭建及遇到的问题</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="guang" target="_blank" itemprop="author">guang</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-27T16:00:15.000Z" itemprop="datePublished"> 发表于 2015-04-28</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why_Hexo"><span class="toc-number">1.</span> <span class="toc-text">Why Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo的安装（ubuntu12-04_64位）"><span class="toc-number">2.</span> <span class="toc-text">Hexo的安装（ubuntu12.04　64位）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、安装Node-js-"><span class="toc-number">2.1.</span> <span class="toc-text">1、安装Node.js.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、安装Git"><span class="toc-number">2.2.</span> <span class="toc-text">2、安装Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、Gihub端设置SSH"><span class="toc-number">2.3.</span> <span class="toc-text">3、Gihub端设置SSH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、安装hexo-deployer-git"><span class="toc-number">2.4.</span> <span class="toc-text">4、安装hexo-deployer-git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、设置博客主目录下的_config-yml"><span class="toc-number">2.5.</span> <span class="toc-text">5、设置博客主目录下的_config.yml</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Hexo时遇到的问题"><span class="toc-number">3.</span> <span class="toc-text">安装Hexo时遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、关机重新开机时出现hexo:_command_not_found错误"><span class="toc-number">3.1.</span> <span class="toc-text">1、关机重新开机时出现hexo: command not found错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、Hexo_deploy时的错误"><span class="toc-number">3.2.</span> <span class="toc-text">2、Hexo deploy时的错误</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h2 id="Why_Hexo">Why Hexo</h2><p>　　<a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>正如其官网介绍：A fast, simple &amp; powerful blog framework.简单，快捷，强大，它生成静态文件都是用毫秒为单位的。在用Hexo之前用过Wordpress，octopress等建博客，Wordpress插件丰富，可定制性高，可是感觉系统过于庞大，有很多用不着的功能。octopress我也是用在github上建过博客，相对Wordpress来说，较小，较快，可是它生成静态文件的时间实在太长，后来发现了Hexo（妈妈再也不用担心我找不到好用的blog框架了）。由于以前建立过Hexo，但很久没有更新，现在Hexo已经更新到3.0.1版本了,升级遇到很多问题，就直接重建Hexo了。</p>
+<h2 id="Hexo的安装（ubuntu12-04_64位）">Hexo的安装（ubuntu12.04　64位）</h2><p>　　Hexo的安装过程参考<a href="http://hexo.io/docs/" target="_blank" rel="external">Hexo docs</a></p>
+<h3 id="1、安装Node-js-">1、安装Node.js.</h3><p>The best way to install Node.js is with nvm.</p>
+<p>cURL:</p>
+<p><code>$ curl https://raw.github.com/creationix/nvm/master/install.sh | sh</code><br>Wget:</p>
+<p><code>$ wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh</code><br>Once nvm is installed, restart the terminal and run the following command to install Node.js.</p>
+<p><code>$ nvm install 0.12</code><br>Alternatively, download and run the installer.</p>
+<h3 id="2、安装Git">2、安装Git</h3><p><code>sudo apt-get install git-core</code></p>
+<h3 id="3、Gihub端设置SSH">3、Gihub端设置SSH</h3><p>按照官网的流程走才是王道啊……刚开始按照别人写的博客做，各种错误，各种坑…….<br><a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank" rel="external">GitHub Help - Generating SSH Keys</a><br><a href="https://help.github.com/articles/error-permission-denied-publickey/" target="_blank" rel="external">GitHub Help - Error Permission denied (publickey)</a></p>
+<h3 id="4、安装hexo-deployer-git">4、安装hexo-deployer-git</h3><p><code>$ npm install hexo-deployer-git --save</code></p>
+<h3 id="5、设置博客主目录下的_config-yml">5、设置博客主目录下的_config.yml</h3><p>Edit settings.<br><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="keyword">type</span>: git</span><br><span class="line">  repo: &lt;repository url&gt;</span><br><span class="line">  branch: [branch]</span><br><span class="line">  <span class="keyword">message</span>: [<span class="keyword">message</span>]</span><br></pre></td></tr></table></figure></p>
+<h2 id="安装Hexo时遇到的问题">安装Hexo时遇到的问题</h2><h3 id="1、关机重新开机时出现hexo:_command_not_found错误">1、关机重新开机时出现hexo: command not found错误</h3><p><a href="http://androidren.com/index.php?qa=263&amp;qa_1=bash-hexo-command-not-found" target="_blank" rel="external">http://androidren.com/index.php?qa=263&amp;qa_1=bash-hexo-command-not-found</a></p>
+<p>运行hexo命令时，发现如题这个错误。hexo是在之前安装好的。</p>
+<p>后来发现原来是没有指定nodejs所致。所以，使用下面的方法解决：</p>
+<p>可以使用下面命令解决：</p>
+<p><code>nvm ls</code><br>v0.12.2</p>
+<p><code>nvm use 0.12.2</code><br>Now using node v0.12.2</p>
+<p><code>nvm alias default 0.12.2</code><br>default -&gt; 0.12.2 (-&gt; 0.12.2)<br>重新开机后发现此错误真的被解决了……</p>
+<h3 id="2、Hexo_deploy时的错误">2、Hexo deploy时的错误</h3><p>Hexo deploy时出现nothing to commit (working directory clean)，但是Github端并没有文件上传上去，参考了<a href="https://github.com/hexojs/hexo/issues/67" target="_blank" rel="external">Hexo deploy 发布不成功 #67</a></p>
+<blockquote>
+<p>我也遇到过类似的情况，原因就是我第一次设置错了，然后即使我正确设置 Repository 再次 Deploy 的时候它也会报错：nothing to commit, working directory clean；error: src refspec master does not match any。所以，当你重新设置 Repo 的时候要把 .deploy/ 文件夹删掉，让 Hexo 再次初始化，否则 Hexo 只是执行 push 操作，所以会一直报错。</p>
+</blockquote>
+<p>hexo init的博客根目录下没有发现.deploy/目录，但发现了.deploy_git/目录，猜测是版本升级后名字给改了，用<code>rm -rf .deploy_git/</code>,再次<code>hexo deploy</code>后也出现了点问题（可能是那时网络不好），重复这里的删除目录再deploy几次就好了。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Hexo搭建/">Hexo搭建</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://learnnn.github.io/2015/04/28/Hexo博客的搭建及遇到的问题/" data-title="Hexo博客的搭建及遇到的问题 | Learnnn" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/04/28/Hexo主题/" title="Hexo主题">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Hexo主题</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/04/25/hello-world/"  title="Hello World">
+ <strong>下一篇：</strong><br/> 
+ <span>Hello World
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/04/28/Hexo博客的搭建及遇到的问题/" data-title="Hexo博客的搭建及遇到的问题" data-url="http://learnnn.github.io/2015/04/28/Hexo博客的搭建及遇到的问题/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why_Hexo"><span class="toc-number">1.</span> <span class="toc-text">Why Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo的安装（ubuntu12-04_64位）"><span class="toc-number">2.</span> <span class="toc-text">Hexo的安装（ubuntu12.04　64位）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、安装Node-js-"><span class="toc-number">2.1.</span> <span class="toc-text">1、安装Node.js.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、安装Git"><span class="toc-number">2.2.</span> <span class="toc-text">2、安装Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、Gihub端设置SSH"><span class="toc-number">2.3.</span> <span class="toc-text">3、Gihub端设置SSH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、安装hexo-deployer-git"><span class="toc-number">2.4.</span> <span class="toc-text">4、安装hexo-deployer-git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、设置博客主目录下的_config-yml"><span class="toc-number">2.5.</span> <span class="toc-text">5、设置博客主目录下的_config.yml</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Hexo时遇到的问题"><span class="toc-number">3.</span> <span class="toc-text">安装Hexo时遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、关机重新开机时出现hexo:_command_not_found错误"><span class="toc-number">3.1.</span> <span class="toc-text">1、关机重新开机时出现hexo: command not found错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、Hexo_deploy时的错误"><span class="toc-number">3.2.</span> <span class="toc-text">2、Hexo deploy时的错误</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Android/" title="Android">Android<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Hexo/" title="Hexo">Hexo<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Hexo添加功能与优化/" title="Hexo添加功能与优化">Hexo添加功能与优化<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo搭建/" title="Hexo搭建">Hexo搭建<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo主题/" title="Hexo主题">Hexo主题<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Android developer,Love life,Love coding <br/>
+			这是我的博客，记录成长点滴</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/learnnn" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="guang">guang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"learnnn"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

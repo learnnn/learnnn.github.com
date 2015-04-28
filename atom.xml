@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[Learnnn]]></title>
+  <subtitle><![CDATA[Learner Never Narcissism]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://learnnn.github.io/"/>
+  <updated>2015-04-28T03:15:37.000Z</updated>
+  <id>http://learnnn.github.io/</id>
+  
+  <author>
+    <name><![CDATA[guang]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Android studio的下载与搭建]]></title>
+    <link href="http://learnnn.github.io/2015/04/28/Android%20studio%E7%9A%84%E4%B8%8B%E8%BD%BD%E4%B8%8E%E6%90%AD%E5%BB%BA/"/>
+    <id>http://learnnn.github.io/2015/04/28/Android studio的下载与搭建/</id>
+    <published>2015-04-27T16:01:01.000Z</published>
+    <updated>2015-04-28T03:15:37.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="Android_studio的下载与搭建">Android studio的下载与搭建</h2>]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="Android_studio的下载与搭建">Android studio的下载与搭建</h2>]]>
+    </summary>
+    
+      <category term="Android" scheme="http://learnnn.github.io/tags/Android/"/>
+    
+      <category term="Android" scheme="http://learnnn.github.io/categories/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Hexo添加功能与优化]]></title>
+    <link href="http://learnnn.github.io/2015/04/28/Hexo%E6%B7%BB%E5%8A%A0%E5%8A%9F%E8%83%BD%E4%B8%8E%E4%BC%98%E5%8C%96/"/>
+    <id>http://learnnn.github.io/2015/04/28/Hexo添加功能与优化/</id>
+    <published>2015-04-27T16:00:37.000Z</published>
+    <updated>2015-04-28T05:15:04.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="添加RSS">添加RSS</h2><p><code>$ npm install hexo-generator-feed --save</code><br>You can configure this plugin in _config.yml(hexo init 的根目录).<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">feed</span>:</span><br><span class="line">  <span class="attribute">type</span>: atom</span><br><span class="line">  <span class="attribute">path</span>: atom.xml</span><br><span class="line">  <span class="attribute">limit</span>: <span class="number">20</span></span><br></pre></td></tr></table></figure></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="添加RSS">添加RSS</h2><p><code>$ npm install hexo-generator-feed --save</code><br>You can configure this plugin in _config.yml(hexo init ]]>
+    </summary>
+    
+      <category term="hexo" scheme="http://learnnn.github.io/tags/hexo/"/>
+    
+      <category term="Hexo添加功能与优化" scheme="http://learnnn.github.io/categories/Hexo%E6%B7%BB%E5%8A%A0%E5%8A%9F%E8%83%BD%E4%B8%8E%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Hexo主题]]></title>
+    <link href="http://learnnn.github.io/2015/04/28/Hexo%E4%B8%BB%E9%A2%98/"/>
+    <id>http://learnnn.github.io/2015/04/28/Hexo主题/</id>
+    <published>2015-04-27T16:00:37.000Z</published>
+    <updated>2015-04-28T02:57:52.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="主题的选择">主题的选择</h2><p>在Hexo官网的<a href="http://hexo.io/themes/" target="_blank" rel="external">Themes</a>中，看到Jacman和NexT两款主题比较适合自己，简单，使用，NexT其实也挺不错，自己用手机网页打开两个主题时，发现Jacman比NexT快，最后的最后还是选择了Jacman。</p>
+<h2 id="Jacman的安装启用与跟新">Jacman的安装启用与跟新</h2><p><a href="http://wuchong.me/jacman/" target="_blank" rel="external">http://wuchong.me/jacman/</a></p>
+<h3 id="安装">安装</h3><p>在博客根目录下执行如下命令。</p>
+<p><code>$ git clone https://github.com/wuchong/jacman.git themes/jacman</code></p>
+<p>Jacman 需要安装 Hexo 2.7 及以上版本，请先升级您的 Hexo 程序，再启用此主题。</p>
+<p>启用</p>
+<p>修改你的博客根目录下的_config.yml配置文件中的theme属性，将其设置为jacman。同时建议设置stylus属性中的compress值为true，会自动压缩 CSS 文件，hexo默认配置中不包含这一项，建议开启。如下。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">theme:</span> jacman</span><br><span class="line"><span class="string">stylus:</span></span><br><span class="line"><span class="label">  compress:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>更新<br><code>cd themes/jacman</code><br><code>git pull origin master</code></p>
+<p>请先备份您主题目录下的 _config.yml 文件后再升级。</p>
+<h2 id="Jacman主题的配置">Jacman主题的配置</h2><p><a href="http://wuchong.me/blog/2014/11/20/how-to-use-jacman/" target="_blank" rel="external">如何使用 Jacman 主题</a></p>
+<h3 id="自己自定义了的部分">自己自定义了的部分</h3><p>1.menu中的英文改成了中文页面</p>
+<p>2.在博客根目录下_config.yml中将language改成zh-CN，添加了subtitle</p>
+<p>3.建立自我介绍页面（About 页面）</p>
+<p>首先在主目录找到_config.yml，找到url添加about_dir: about到这个板块。然后在/source里面建立about文件夹。在about文件夹里建立index.md。编辑index.md就和发布其他的文章一样，格式都一样。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">url:</span> <span class="string">http:</span><span class="comment">//yoursite.com</span></span><br><span class="line"><span class="string">about_dir:</span> about        ##添加了这一块</span><br><span class="line"><span class="string">root:</span> /</span><br><span class="line"><span class="string">permalink:</span> :year<span class="regexp">/:month/</span>:day<span class="regexp">/:title/</span></span><br><span class="line"><span class="string">permalink_defaults:</span></span><br></pre></td></tr></table></figure>
+<p>4.主题颜色更改 Theme Color</p>
+<p>更改在主题目录下的_config.yml的 theme_color 下 theme 值。</p>
+<p>Theme Color<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">theme_color</span>:</span><br><span class="line">    <span class="attribute">theme</span>: <span class="string">'#ff9900'</span>    ##改成黄色</span><br></pre></td></tr></table></figure></p>
+<p>5.自己制作网页logo和图片（使用photoshop）</p>
+<p>6.改了作者名等信息</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="主题的选择">主题的选择</h2><p>在Hexo官网的<a href="http://hexo.io/themes/" target="_blank" rel="external">Themes</a>中，看到Jacman和NexT两款主题比较适合自己，简单，使]]>
+    </summary>
+    
+      <category term="Hexo主题" scheme="http://learnnn.github.io/tags/Hexo%E4%B8%BB%E9%A2%98/"/>
+    
+      <category term="Hexo" scheme="http://learnnn.github.io/categories/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Hexo博客的搭建及遇到的问题]]></title>
+    <link href="http://learnnn.github.io/2015/04/28/Hexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://learnnn.github.io/2015/04/28/Hexo博客的搭建及遇到的问题/</id>
+    <published>2015-04-27T16:00:15.000Z</published>
+    <updated>2015-04-28T02:54:47.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="Why_Hexo">Why Hexo</h2><p>　　<a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>正如其官网介绍：A fast, simple &amp; powerful blog framework.简单，快捷，强大，它生成静态文件都是用毫秒为单位的。在用Hexo之前用过Wordpress，octopress等建博客，Wordpress插件丰富，可定制性高，可是感觉系统过于庞大，有很多用不着的功能。octopress我也是用在github上建过博客，相对Wordpress来说，较小，较快，可是它生成静态文件的时间实在太长，后来发现了Hexo（妈妈再也不用担心我找不到好用的blog框架了）。由于以前建立过Hexo，但很久没有更新，现在Hexo已经更新到3.0.1版本了,升级遇到很多问题，就直接重建Hexo了。</p>
+<h2 id="Hexo的安装（ubuntu12-04_64位）">Hexo的安装（ubuntu12.04　64位）</h2><p>　　Hexo的安装过程参考<a href="http://hexo.io/docs/" target="_blank" rel="external">Hexo docs</a></p>
+<h3 id="1、安装Node-js-">1、安装Node.js.</h3><p>The best way to install Node.js is with nvm.</p>
+<p>cURL:</p>
+<p><code>$ curl https://raw.github.com/creationix/nvm/master/install.sh | sh</code><br>Wget:</p>
+<p><code>$ wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh</code><br>Once nvm is installed, restart the terminal and run the following command to install Node.js.</p>
+<p><code>$ nvm install 0.12</code><br>Alternatively, download and run the installer.</p>
+<h3 id="2、安装Git">2、安装Git</h3><p><code>sudo apt-get install git-core</code></p>
+<h3 id="3、Gihub端设置SSH">3、Gihub端设置SSH</h3><p>按照官网的流程走才是王道啊……刚开始按照别人写的博客做，各种错误，各种坑…….<br><a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank" rel="external">GitHub Help - Generating SSH Keys</a><br><a href="https://help.github.com/articles/error-permission-denied-publickey/" target="_blank" rel="external">GitHub Help - Error Permission denied (publickey)</a></p>
+<h3 id="4、安装hexo-deployer-git">4、安装hexo-deployer-git</h3><p><code>$ npm install hexo-deployer-git --save</code></p>
+<h3 id="5、设置博客主目录下的_config-yml">5、设置博客主目录下的_config.yml</h3><p>Edit settings.<br><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="keyword">type</span>: git</span><br><span class="line">  repo: &lt;repository url&gt;</span><br><span class="line">  branch: [branch]</span><br><span class="line">  <span class="keyword">message</span>: [<span class="keyword">message</span>]</span><br></pre></td></tr></table></figure></p>
+<h2 id="安装Hexo时遇到的问题">安装Hexo时遇到的问题</h2><h3 id="1、关机重新开机时出现hexo:_command_not_found错误">1、关机重新开机时出现hexo: command not found错误</h3><p><a href="http://androidren.com/index.php?qa=263&amp;qa_1=bash-hexo-command-not-found" target="_blank" rel="external">http://androidren.com/index.php?qa=263&amp;qa_1=bash-hexo-command-not-found</a></p>
+<p>运行hexo命令时，发现如题这个错误。hexo是在之前安装好的。</p>
+<p>后来发现原来是没有指定nodejs所致。所以，使用下面的方法解决：</p>
+<p>可以使用下面命令解决：</p>
+<p><code>nvm ls</code><br>v0.12.2</p>
+<p><code>nvm use 0.12.2</code><br>Now using node v0.12.2</p>
+<p><code>nvm alias default 0.12.2</code><br>default -&gt; 0.12.2 (-&gt; 0.12.2)<br>重新开机后发现此错误真的被解决了……</p>
+<h3 id="2、Hexo_deploy时的错误">2、Hexo deploy时的错误</h3><p>Hexo deploy时出现nothing to commit (working directory clean)，但是Github端并没有文件上传上去，参考了<a href="https://github.com/hexojs/hexo/issues/67" target="_blank" rel="external">Hexo deploy 发布不成功 #67</a></p>
+<blockquote>
+<p>我也遇到过类似的情况，原因就是我第一次设置错了，然后即使我正确设置 Repository 再次 Deploy 的时候它也会报错：nothing to commit, working directory clean；error: src refspec master does not match any。所以，当你重新设置 Repo 的时候要把 .deploy/ 文件夹删掉，让 Hexo 再次初始化，否则 Hexo 只是执行 push 操作，所以会一直报错。</p>
+</blockquote>
+<p>hexo init的博客根目录下没有发现.deploy/目录，但发现了.deploy_git/目录，猜测是版本升级后名字给改了，用<code>rm -rf .deploy_git/</code>,再次<code>hexo deploy</code>后也出现了点问题（可能是那时网络不好），重复这里的删除目录再deploy几次就好了。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="Why_Hexo">Why Hexo</h2><p>　　<a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>正如其官网介绍：A fast, simple &amp; powerful b]]>
+    </summary>
+    
+      <category term="Hexo搭建" scheme="http://learnnn.github.io/tags/Hexo%E6%90%AD%E5%BB%BA/"/>
+    
+      <category term="Hexo" scheme="http://learnnn.github.io/categories/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <link href="http://learnnn.github.io/2015/04/25/hello-world/"/>
+    <id>http://learnnn.github.io/2015/04/25/hello-world/</id>
+    <published>2015-04-24T16:00:15.000Z</published>
+    <updated>2015-04-28T05:59:28.000Z</updated>
+    <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io]]>
+    </summary>
+    
+  </entry>
+  
+</feed>
