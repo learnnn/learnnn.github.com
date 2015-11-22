@@ -80,20 +80,41 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/04/28/Android studio的下载与搭建/" title="Android studio的下载与搭建" itemprop="url">Android studio的下载与搭建</a>
+      <a href="/2015/04/28/Hexo主题/" title="Hexo主题" itemprop="url">Hexo主题</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="guang" target="_blank" itemprop="author">guang</a>
 		
   <p class="article-time">
-    <time datetime="2015-04-27T16:01:01.000Z" itemprop="datePublished"> 发表于 2015-04-28</time>
+    <time datetime="2015-04-27T16:00:37.000Z" itemprop="datePublished"> 发表于 2015-04-28</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <h2 id="Android_studio的下载与搭建">Android studio的下载与搭建</h2>
+        <h2 id="主题的选择">主题的选择</h2><p>在Hexo官网的<a href="http://hexo.io/themes/" target="_blank" rel="external">Themes</a>中，看到Jacman和NexT两款主题比较适合自己，简单，使用，NexT其实也挺不错，自己用手机网页打开两个主题时，发现Jacman比NexT快，最后的最后还是选择了Jacman。</p>
+<h2 id="Jacman的安装启用与跟新">Jacman的安装启用与跟新</h2><p><a href="http://wuchong.me/jacman/" target="_blank" rel="external">http://wuchong.me/jacman/</a></p>
+<h3 id="安装">安装</h3><p>在博客根目录下执行如下命令。</p>
+<p><code>$ git clone https://github.com/wuchong/jacman.git themes/jacman</code></p>
+<p>Jacman 需要安装 Hexo 2.7 及以上版本，请先升级您的 Hexo 程序，再启用此主题。</p>
+<p>启用</p>
+<p>修改你的博客根目录下的_config.yml配置文件中的theme属性，将其设置为jacman。同时建议设置stylus属性中的compress值为true，会自动压缩 CSS 文件，hexo默认配置中不包含这一项，建议开启。如下。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">theme:</span> jacman</span><br><span class="line"><span class="string">stylus:</span></span><br><span class="line"><span class="label">  compress:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>更新<br><code>cd themes/jacman</code><br><code>git pull origin master</code></p>
+<p>请先备份您主题目录下的 _config.yml 文件后再升级。</p>
+<h2 id="Jacman主题的配置">Jacman主题的配置</h2><p><a href="http://wuchong.me/blog/2014/11/20/how-to-use-jacman/" target="_blank" rel="external">如何使用 Jacman 主题</a></p>
+<h3 id="自己自定义了的部分">自己自定义了的部分</h3><p>1.menu中的英文改成了中文页面</p>
+<p>2.在博客根目录下_config.yml中将language改成zh-CN，添加了subtitle</p>
+<p>3.建立自我介绍页面（About 页面）</p>
+<p>首先在主目录找到_config.yml，找到url添加about_dir: about到这个板块。然后在/source里面建立about文件夹。在about文件夹里建立index.md。编辑index.md就和发布其他的文章一样，格式都一样。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">url:</span> <span class="string">http:</span><span class="comment">//yoursite.com</span></span><br><span class="line"><span class="string">about_dir:</span> about        ##添加了这一块</span><br><span class="line"><span class="string">root:</span> /</span><br><span class="line"><span class="string">permalink:</span> :year<span class="regexp">/:month/</span>:day<span class="regexp">/:title/</span></span><br><span class="line"><span class="string">permalink_defaults:</span></span><br></pre></td></tr></table></figure>
+<p>4.主题颜色更改 Theme Color</p>
+<p>更改在主题目录下的_config.yml的 theme_color 下 theme 值。</p>
+<p>Theme Color<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">theme_color</span>:</span><br><span class="line">    <span class="attribute">theme</span>: <span class="string">'#ff9900'</span>    ##改成黄色</span><br></pre></td></tr></table></figure></p>
+<p>5.自己制作网页logo和图片（使用photoshop）</p>
+<p>6.改了作者名等信息</p>
+
         
         
         <p class="article-more-link">
@@ -105,13 +126,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/Android/">Android</a>
+  <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Android/">Android</a>
+  <span></span> <a href="/tags/Hexo主题/">Hexo主题</a>
   </div>
 
 </div>
@@ -122,7 +143,7 @@
 <div class="comments-count">
 	
 	  	<span></span>
-		<a href="/2015/04/28/Android studio的下载与搭建/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/28/Android studio的下载与搭建/" data-count-type="comments">&nbsp;</a>
+		<a href="/2015/04/28/Hexo主题/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/28/Hexo主题/" data-count-type="comments">&nbsp;</a>
 	
 </div>
 
@@ -195,89 +216,6 @@
 	
 	  	<span></span>
 		<a href="/2015/04/28/Hexo添加功能与优化/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/28/Hexo添加功能与优化/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/04/28/Hexo主题/" title="Hexo主题" itemprop="url">Hexo主题</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="guang" target="_blank" itemprop="author">guang</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-27T16:00:37.000Z" itemprop="datePublished"> 发表于 2015-04-28</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="主题的选择">主题的选择</h2><p>在Hexo官网的<a href="http://hexo.io/themes/" target="_blank" rel="external">Themes</a>中，看到Jacman和NexT两款主题比较适合自己，简单，使用，NexT其实也挺不错，自己用手机网页打开两个主题时，发现Jacman比NexT快，最后的最后还是选择了Jacman。</p>
-<h2 id="Jacman的安装启用与跟新">Jacman的安装启用与跟新</h2><p><a href="http://wuchong.me/jacman/" target="_blank" rel="external">http://wuchong.me/jacman/</a></p>
-<h3 id="安装">安装</h3><p>在博客根目录下执行如下命令。</p>
-<p><code>$ git clone https://github.com/wuchong/jacman.git themes/jacman</code></p>
-<p>Jacman 需要安装 Hexo 2.7 及以上版本，请先升级您的 Hexo 程序，再启用此主题。</p>
-<p>启用</p>
-<p>修改你的博客根目录下的_config.yml配置文件中的theme属性，将其设置为jacman。同时建议设置stylus属性中的compress值为true，会自动压缩 CSS 文件，hexo默认配置中不包含这一项，建议开启。如下。</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">theme:</span> jacman</span><br><span class="line"><span class="string">stylus:</span></span><br><span class="line"><span class="label">  compress:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p>更新<br><code>cd themes/jacman</code><br><code>git pull origin master</code></p>
-<p>请先备份您主题目录下的 _config.yml 文件后再升级。</p>
-<h2 id="Jacman主题的配置">Jacman主题的配置</h2><p><a href="http://wuchong.me/blog/2014/11/20/how-to-use-jacman/" target="_blank" rel="external">如何使用 Jacman 主题</a></p>
-<h3 id="自己自定义了的部分">自己自定义了的部分</h3><p>1.menu中的英文改成了中文页面</p>
-<p>2.在博客根目录下_config.yml中将language改成zh-CN，添加了subtitle</p>
-<p>3.建立自我介绍页面（About 页面）</p>
-<p>首先在主目录找到_config.yml，找到url添加about_dir: about到这个板块。然后在/source里面建立about文件夹。在about文件夹里建立index.md。编辑index.md就和发布其他的文章一样，格式都一样。</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">url:</span> <span class="string">http:</span><span class="comment">//yoursite.com</span></span><br><span class="line"><span class="string">about_dir:</span> about        ##添加了这一块</span><br><span class="line"><span class="string">root:</span> /</span><br><span class="line"><span class="string">permalink:</span> :year<span class="regexp">/:month/</span>:day<span class="regexp">/:title/</span></span><br><span class="line"><span class="string">permalink_defaults:</span></span><br></pre></td></tr></table></figure>
-<p>4.主题颜色更改 Theme Color</p>
-<p>更改在主题目录下的_config.yml的 theme_color 下 theme 值。</p>
-<p>Theme Color<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">theme_color</span>:</span><br><span class="line">    <span class="attribute">theme</span>: <span class="string">'#ff9900'</span>    ##改成黄色</span><br></pre></td></tr></table></figure></p>
-<p>5.自己制作网页logo和图片（使用photoshop）</p>
-<p>6.改了作者名等信息</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Hexo主题/">Hexo主题</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/04/28/Hexo主题/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/28/Hexo主题/" data-count-type="comments">&nbsp;</a>
 	
 </div>
 
@@ -451,10 +389,6 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/Android/" title="Android">Android<sup>1</sup></a></li>
-		  
-		
-		  
 			<li><a href="/categories/Hexo/" title="Hexo">Hexo<sup>2</sup></a></li>
 		  
 		
@@ -472,7 +406,7 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
+				<li><a href="/tags/Hexo主题/" title="Hexo主题">Hexo主题<sup>1</sup></a></li>
 			
 		
 			
@@ -481,10 +415,6 @@
 		
 			
 				<li><a href="/tags/Hexo搭建/" title="Hexo搭建">Hexo搭建<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Hexo主题/" title="Hexo主题">Hexo主题<sup>1</sup></a></li>
 			
 		
 		</ul>
