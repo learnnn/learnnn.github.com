@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://learnnn.github.io/2015/11/23/java%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/</loc>
+    <lastmod>2015-11-23T09:32:04.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://learnnn.github.io/2015/11/22/rxjava%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(1)/</loc>
+    <lastmod>2015-11-23T09:15:14.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://learnnn.github.io/2015/04/28/Hexo%E6%B7%BB%E5%8A%A0%E5%8A%9F%E8%83%BD%E4%B8%8E%E4%BC%98%E5%8C%96/</loc>
     <lastmod>2015-04-28T08:46:23.000Z</lastmod>
   </url>

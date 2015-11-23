@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Learner Never Narcissism]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://learnnn.github.io/"/>
-  <updated>2015-04-28T02:57:52.000Z</updated>
+  <updated>2015-11-23T09:32:04.000Z</updated>
   <id>http://learnnn.github.io/</id>
   
   <author>
@@ -13,6 +13,70 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[java回调机制]]></title>
+    <link href="http://learnnn.github.io/2015/11/23/java%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/"/>
+    <id>http://learnnn.github.io/2015/11/23/java回调函数/</id>
+    <published>2015-11-23T01:10:12.000Z</published>
+    <updated>2015-11-23T09:32:04.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="复杂的绕口令（回调的概念）">复杂的绕口令（回调的概念）</h2><p>所谓回调:就是A类中调用B类中的某个方法C，然后B类中反过来调用A类中的方法D，D这个方法就叫回调方法。<br>一看到这个绕口令式的概念时心中千只草泥马在奔跑/(ㄒoㄒ)/~~，这真的是什么鬼?太迷惑人了……<br>我自己理解就是<strong>A中有B，B中有A，A调用B的方法，然后B再调用A中方法。</strong>(好像也有点绕+_+)</p>
+<h2 id="现实类似情况">现实类似情况</h2><blockquote>
+<p>大家都喜欢用打电话的例子，好吧，为了跟上时代，我也用这个例子好了，我这个例子采用异步加回调<br>有一天小王遇到一个很难的问题，问题是“1 + 1 = ?”，就打电话问小李，小李一下子也不知道，就跟小王说，等我办完手上的事情，就去想想答案，小王也不会傻傻的拿着电话去等小李的答案吧，于是小王就对小李说，我还要去逛街，你知道了答案就打我电话告诉我，于是挂了电话，自己办自己的事情，过了一个小时，小李打了小王的电话，告诉他答案是2</p>
+</blockquote>
+<h2 id="我的理解">我的理解</h2><blockquote>
+<p>比较经典的回调方式：<br>Class A实现接口CallBack callback——背景1<br>class A中包含一个class B的引用b ——背景2<br>class B有一个参数为callback的方法f(CallBack callback) ——背景3<br>A的对象a调用B的方法 f(CallBack callback) ——A类调用B类的某个方法 C<br>然后b就可以在f(CallBack callback)方法中调用A的方法 ——B类调用A类的某个方法D  </p>
+</blockquote>
+<h3 id="A中有B">A中有B</h3><p>A通常先实现CallBack接口。<br>A中要有B，通常通过实例化B，然后再调用B的方法（通常通过B方法传参传入A（A作为CallBack出传入））。<br>如下列代码形式：</p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public <span class="keyword">interface</span> <span class="type">CallBack</span>&#123;  </span><br><span class="line">	public <span class="type">void</span> <span class="type">AMethod</span>(<span class="type">String</span> <span class="literal">result</span>);  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class A implements <span class="type">CallBack</span> &#123; </span><br><span class="line"></span><br><span class="line">    private B b;   </span><br><span class="line"></span><br><span class="line">    public A(B b)&#123;  </span><br><span class="line">        this.B = b;  </span><br><span class="line">    &#125;  </span><br><span class="line"></span><br><span class="line">    public <span class="type">void</span> askQuestion(final <span class="type">String</span> question)&#123;      </span><br><span class="line">        //调用B的方法（通常运行在非ui线程中，为了简单点省略）</span><br><span class="line">        b.<span class="type">BMethod</span>(A.this, question);     </span><br><span class="line">    &#125;  </span><br><span class="line"></span><br><span class="line">    @<span class="type">Override</span>  </span><br><span class="line">    public <span class="type">void</span> <span class="type">AMethod</span>(<span class="type">String</span> <span class="literal">result</span>) &#123;  </span><br><span class="line">        <span class="type">System</span>.<span class="keyword">out</span>.println(<span class="string">"AMethod---&gt;"</span> + <span class="literal">result</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">      </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="B中有A">B中有A</h3><p>即是上面通过传参传入的A。<br>代码如下：<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class B &#123;   </span><br><span class="line">    public <span class="type">void</span> <span class="type">BMethod</span>(<span class="type">CallBack</span> callBack, <span class="type">String</span> question)&#123;  </span><br><span class="line">        </span><br><span class="line">		长时间的运算...</span><br><span class="line">         </span><br><span class="line">        <span class="type">String</span> <span class="literal">result</span> = <span class="string">"答案是2"</span>; </span><br><span class="line">        //调用A方法</span><br><span class="line">        callBack.<span class="type">AMethod</span>(<span class="literal">result</span>);       </span><br><span class="line">    &#125;  </span><br><span class="line">      </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="认特点来认人（换个思维来思考）">认特点来认人（换个思维来思考）</h2><p>认人通常通过认脸，但遇到双胞胎时，这就使人迷糊了。但是我们可以通过认特点来认出他们。<br>回调可以通过特点来认呢？当然可以。<br>A类实现了一个接口，但是A类没有直接调用这个接口的方法，嘻嘻（自己不用，肯定是给别人用的啦），我开始怀疑是回调了。然后A类中有B类实例，并且调用了它的方法，还传入了A，到这里可以99%肯定用了，最后看看B类中是否调用了A类中的方法，Oh，Bingo！你就是回调了，化成灰都认得出来。。。<br><strong>以上为菜鸟我的一些理解，有错误的地方请指正……</strong></p>
+<h2 id="参考">参考</h2><p><a href="http://blog.csdn.net/xiaanming/article/details/8703708" target="_blank" rel="external">一个经典例子让你彻彻底底理解java回调机制</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="复杂的绕口令（回调的概念）">复杂的绕口令（回调的概念）</h2><p>所谓回调:就是A类中调用B类中的某个方法C，然后B类中反过来调用A类中的方法D，D这个方法就叫回调方法。<br>一看到这个绕口令式的概念时心中千只草泥马在奔跑/(ㄒoㄒ)/~~，这真的是什么鬼]]>
+    </summary>
+    
+      <category term="java" scheme="http://learnnn.github.io/tags/java/"/>
+    
+      <category term="java" scheme="http://learnnn.github.io/categories/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Rxjava学习笔记（1）]]></title>
+    <link href="http://learnnn.github.io/2015/11/22/rxjava%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(1)/"/>
+    <id>http://learnnn.github.io/2015/11/22/rxjava学习笔记(1)/</id>
+    <published>2015-11-22T13:05:37.000Z</published>
+    <updated>2015-11-23T09:15:14.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="开始之前">开始之前</h2><p>在正文开始之前的最后，放上 GitHub 链接和引入依赖的 gradle 代码： Github：<br><a href="https://github.com/ReactiveX/RxJava" target="_blank" rel="external">https://github.com/ReactiveX/RxJava</a><br><a href="https://github.com/ReactiveX/RxAndroid" target="_blank" rel="external">https://github.com/ReactiveX/RxAndroid</a><br>引入依赖：<br>compile ‘io.reactivex:rxjava:1.0.14’<br>compile ‘io.reactivex:rxandroid:1.0.1’<br>（版本号是文章发布时的最新稳定版）</p>
+<h2 id="Rxjava什么鬼？">Rxjava什么鬼？</h2><blockquote>
+<p>a library for composing asynchronous and event-based programs by using observable sequences for the Java VM. </p>
+</blockquote>
+<p>这是Rxjava在Github<a href="https://github.com/ReactiveX/RxJava" target="_blank" rel="external">主页</a>的一段自白，一个在 Java VM 上使用可观测的序列来组成异步的、基于事件的程序的库。<br>关键词：<strong>异步</strong>、<strong>事件</strong>、<strong>可观测序列</strong>（暂时觉得是一个事件相对另一个事件发生的时间先后）<br>关于更多的Rxjava的介绍和了解可以直接看抛物线大神的<a href="http://gank.io/post/560e15be2dca930e00da1083#toc_11" target="_blank" rel="external">这篇</a>文章，深入浅出，容易理解。  </p>
+<h2 id="Rxjava好在哪">Rxjava好在哪</h2><p>简洁：<strong>随着程序逻辑变得越来越复杂，仍然能保持简洁。</strong>它能把本来要嵌套使用的语句平铺出来，使得代码逻辑看起来比较清晰。<br>异步:Scheduler(调度器)进行线程控制，方便使用异步。<br>Observable:很强大的一个类，看看官方的<a href="http://reactivex.io/RxJava/javadoc/rx/Observable.html" target="_blank" rel="external">Java doc</a>就知道它可以做的东西太多太多……</p>
+<h2 id="Rxjava实战">Rxjava实战</h2><p>好记性不如烂笔头，Rxjava用在Android上的示例可以先参照着这位阿三哥的<a href="https://github.com/kaushikgopal/RxJava-Android-Samples" target="_blank" rel="external">Sample</a>，他没有用java8，是完全Rxjava写的demo，非常适合Rxjava入门和提升在Android中的实战技巧。</p>
+<h2 id="Sample中一些自己的理解">Sample中一些自己的理解</h2><h3 id="Concurrency_using_schedulers">Concurrency using schedulers</h3><p>就是简单的让那些繁重的运算放在非UI线程上的一个demo，没什么好说的。</p>
+<h3 id="Accumulate_calls_(buffer)">Accumulate calls (buffer)</h3><p>通过调用”buffer”运算，使得在2s（程序设定的）中得到的clickEvent转换后的值放进List当中，相当于在2s内缓存运算结果，然后在onNext中对其进行其他操作</p>
+<h3 id="Instant/Auto_searching_(subject_+_debounce)">Instant/Auto searching (subject + debounce)</h3><p>搜索时，你想搜索”Bruce Lee”，你不希望它像B,Br，Bru，Bruc…这样每变动一下就搜索一下吧。debounce可以过滤掉在一定时间范围内前面产生的事件，只保留最后一个的事件，也可以这样说：它过一定的时间才会搜索一次。</p>
+<h3 id="Retrofit_and_RxJava_(zip,_flatmap)">Retrofit and RxJava (zip, flatmap)</h3><p>Retrofit是Square的一个开源网络库，它提供了Rxjava版本的Observable形式API，这个例子中，出现了网络请求中经常发生的情况：网络请求后获得的返回值要作为另外一个网络请求的参数。这种循环嵌套调用的程序，若不是用rxjava来写，则会形成迷之缩进，比较难看清其中的代码逻辑。flatmap把传入参数转化成一个Observable对象。 zip将几个Observable打包成一个Observable。<br>如下图所示，通过flatmap让那些网络请求变成平行的请求，然后通过zip将结果合并成最后的数据输出。</p>
+<pre><code><span class="code">         (flatmap)</span>
+f1 <span class="strong">_____</span><span class="strong">_____</span><span class="strong">_____</span><span class="strong">____ f3 __</span><span class="strong">_____</span>
+<span class="code">         (flatmap)               |    (zip)</span>
+f2 <span class="strong">_____</span><span class="strong">_____</span><span class="strong">_____</span><span class="strong">____ f4 __</span><span class="strong">_____</span>| <span class="strong">_____</span><span class="strong">_____</span>_  final output
+<span class="code">        \                        |</span>
+<span class="code">         \____________ f5 _______|</span>
+</code></pre><h3 id="Double_binding_with_TextViews">Double binding with TextViews</h3><p>自动更新界面，通过PublishSubject建立一个”监听器”，当调用它的onNext方法时，它会”监听”到数据，并执行相关操作。可能很方便的就使用了MVP模式。<br>PS:这样说应该没有问题，但实际就比较复杂（自行google或看源代码，我说不清楚）。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="开始之前">开始之前</h2><p>在正文开始之前的最后，放上 GitHub 链接和引入依赖的 gradle 代码： Github：<br><a href="https://github.com/ReactiveX/RxJava" target="_blank" ]]>
+    </summary>
+    
+      <category term="Rxjava" scheme="http://learnnn.github.io/tags/Rxjava/"/>
+    
+      <category term="Rxjava" scheme="http://learnnn.github.io/categories/Rxjava/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Hexo主题]]></title>

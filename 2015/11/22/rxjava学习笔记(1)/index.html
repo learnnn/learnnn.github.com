@@ -4,31 +4,22 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hexo主题 | Learnnn</title>
+    <title>Rxjava学习笔记（1） | Learnnn</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="guang">
     
 
     
-    <meta name="description" content="主题的选择在Hexo官网的Themes中，看到Jacman和NexT两款主题比较适合自己，简单，使用，NexT其实也挺不错，自己用手机网页打开两个主题时，发现Jacman比NexT快，最后的最后还是选择了Jacman。
-Jacman的安装启用与跟新http://wuchong.me/jacman/
-安装在博客根目录下执行如下命令。
-$ git clone https://github.com/wu">
+    <meta name="description" content="开始之前在正文开始之前的最后，放上 GitHub 链接和引入依赖的 gradle 代码： Github：https://github.com/ReactiveX/RxJavahttps://github.com/ReactiveX/RxAndroid引入依赖：compile ‘io.reactivex:rxjava:1.0.14’compile ‘io.reactivex:rxandroid:1.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo主题">
-<meta property="og:url" content="http://learnnn.github.io/2015/04/28/Hexo主题/index.html">
+<meta property="og:title" content="Rxjava学习笔记（1）">
+<meta property="og:url" content="http://learnnn.github.io/2015/11/22/rxjava学习笔记(1)/index.html">
 <meta property="og:site_name" content="Learnnn">
-<meta property="og:description" content="主题的选择在Hexo官网的Themes中，看到Jacman和NexT两款主题比较适合自己，简单，使用，NexT其实也挺不错，自己用手机网页打开两个主题时，发现Jacman比NexT快，最后的最后还是选择了Jacman。
-Jacman的安装启用与跟新http://wuchong.me/jacman/
-安装在博客根目录下执行如下命令。
-$ git clone https://github.com/wu">
+<meta property="og:description" content="开始之前在正文开始之前的最后，放上 GitHub 链接和引入依赖的 gradle 代码： Github：https://github.com/ReactiveX/RxJavahttps://github.com/ReactiveX/RxAndroid引入依赖：compile ‘io.reactivex:rxjava:1.0.14’compile ‘io.reactivex:rxandroid:1.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo主题">
-<meta name="twitter:description" content="主题的选择在Hexo官网的Themes中，看到Jacman和NexT两款主题比较适合自己，简单，使用，NexT其实也挺不错，自己用手机网页打开两个主题时，发现Jacman比NexT快，最后的最后还是选择了Jacman。
-Jacman的安装启用与跟新http://wuchong.me/jacman/
-安装在博客根目录下执行如下命令。
-$ git clone https://github.com/wu">
+<meta name="twitter:title" content="Rxjava学习笔记（1）">
+<meta name="twitter:description" content="开始之前在正文开始之前的最后，放上 GitHub 链接和引入依赖的 gradle 代码： Github：https://github.com/ReactiveX/RxJavahttps://github.com/ReactiveX/RxAndroid引入依赖：compile ‘io.reactivex:rxjava:1.0.14’compile ‘io.reactivex:rxandroid:1.">
 
     
     <link rel="alternative" href="/atom.xml" title="Learnnn" type="application/atom+xml">
@@ -87,14 +78,14 @@ $ git clone https://github.com/wu">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/04/28/Hexo主题/" title="Hexo主题" itemprop="url">Hexo主题</a>
+      <a href="/2015/11/22/rxjava学习笔记(1)/" title="Rxjava学习笔记（1）" itemprop="url">Rxjava学习笔记（1）</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="guang" target="_blank" itemprop="author">guang</a>
 		
   <p class="article-time">
-    <time datetime="2015-04-27T16:00:37.000Z" itemprop="datePublished"> 发表于 2015-04-28</time>
+    <time datetime="2015-11-22T13:05:37.000Z" itemprop="datePublished"> 发表于 2015-11-22</time>
     
   </p>
 </header>
@@ -103,31 +94,28 @@ $ git clone https://github.com/wu">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#主题的选择"><span class="toc-number">1.</span> <span class="toc-text">主题的选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jacman的安装启用与跟新"><span class="toc-number">2.</span> <span class="toc-text">Jacman的安装启用与跟新</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">2.1.</span> <span class="toc-text">安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jacman主题的配置"><span class="toc-number">3.</span> <span class="toc-text">Jacman主题的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#自己自定义了的部分"><span class="toc-number">3.1.</span> <span class="toc-text">自己自定义了的部分</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开始之前"><span class="toc-number">1.</span> <span class="toc-text">开始之前</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rxjava什么鬼？"><span class="toc-number">2.</span> <span class="toc-text">Rxjava什么鬼？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rxjava好在哪"><span class="toc-number">3.</span> <span class="toc-text">Rxjava好在哪</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rxjava实战"><span class="toc-number">4.</span> <span class="toc-text">Rxjava实战</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample中一些自己的理解"><span class="toc-number">5.</span> <span class="toc-text">Sample中一些自己的理解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Concurrency_using_schedulers"><span class="toc-number">5.1.</span> <span class="toc-text">Concurrency using schedulers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Accumulate_calls_(buffer)"><span class="toc-number">5.2.</span> <span class="toc-text">Accumulate calls (buffer)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Instant/Auto_searching_(subject_+_debounce)"><span class="toc-number">5.3.</span> <span class="toc-text">Instant/Auto searching (subject + debounce)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Retrofit_and_RxJava_(zip,_flatmap)"><span class="toc-number">5.4.</span> <span class="toc-text">Retrofit and RxJava (zip, flatmap)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Double_binding_with_TextViews"><span class="toc-number">5.5.</span> <span class="toc-text">Double binding with TextViews</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h2 id="主题的选择">主题的选择</h2><p>在Hexo官网的<a href="http://hexo.io/themes/" target="_blank" rel="external">Themes</a>中，看到Jacman和NexT两款主题比较适合自己，简单，使用，NexT其实也挺不错，自己用手机网页打开两个主题时，发现Jacman比NexT快，最后的最后还是选择了Jacman。</p>
-<h2 id="Jacman的安装启用与跟新">Jacman的安装启用与跟新</h2><p><a href="http://wuchong.me/jacman/" target="_blank" rel="external">http://wuchong.me/jacman/</a></p>
-<h3 id="安装">安装</h3><p>在博客根目录下执行如下命令。</p>
-<p><code>$ git clone https://github.com/wuchong/jacman.git themes/jacman</code></p>
-<p>Jacman 需要安装 Hexo 2.7 及以上版本，请先升级您的 Hexo 程序，再启用此主题。</p>
-<p>启用</p>
-<p>修改你的博客根目录下的_config.yml配置文件中的theme属性，将其设置为jacman。同时建议设置stylus属性中的compress值为true，会自动压缩 CSS 文件，hexo默认配置中不包含这一项，建议开启。如下。</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">theme:</span> jacman</span><br><span class="line"><span class="string">stylus:</span></span><br><span class="line"><span class="label">  compress:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p>更新<br><code>cd themes/jacman</code><br><code>git pull origin master</code></p>
-<p>请先备份您主题目录下的 _config.yml 文件后再升级。</p>
-<h2 id="Jacman主题的配置">Jacman主题的配置</h2><p><a href="http://wuchong.me/blog/2014/11/20/how-to-use-jacman/" target="_blank" rel="external">如何使用 Jacman 主题</a></p>
-<h3 id="自己自定义了的部分">自己自定义了的部分</h3><p>1.menu中的英文改成了中文页面</p>
-<p>2.在博客根目录下_config.yml中将language改成zh-CN，添加了subtitle</p>
-<p>3.建立自我介绍页面（About 页面）</p>
-<p>首先在主目录找到_config.yml，找到url添加about_dir: about到这个板块。然后在/source里面建立about文件夹。在about文件夹里建立index.md。编辑index.md就和发布其他的文章一样，格式都一样。</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">url:</span> <span class="string">http:</span><span class="comment">//yoursite.com</span></span><br><span class="line"><span class="string">about_dir:</span> about        ##添加了这一块</span><br><span class="line"><span class="string">root:</span> /</span><br><span class="line"><span class="string">permalink:</span> :year<span class="regexp">/:month/</span>:day<span class="regexp">/:title/</span></span><br><span class="line"><span class="string">permalink_defaults:</span></span><br></pre></td></tr></table></figure>
-<p>4.主题颜色更改 Theme Color</p>
-<p>更改在主题目录下的_config.yml的 theme_color 下 theme 值。</p>
-<p>Theme Color<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">theme_color</span>:</span><br><span class="line">    <span class="attribute">theme</span>: <span class="string">'#ff9900'</span>    ##改成黄色</span><br></pre></td></tr></table></figure></p>
-<p>5.自己制作网页logo和图片（使用photoshop）</p>
-<p>6.改了作者名等信息</p>
+		<h2 id="开始之前">开始之前</h2><p>在正文开始之前的最后，放上 GitHub 链接和引入依赖的 gradle 代码： Github：<br><a href="https://github.com/ReactiveX/RxJava" target="_blank" rel="external">https://github.com/ReactiveX/RxJava</a><br><a href="https://github.com/ReactiveX/RxAndroid" target="_blank" rel="external">https://github.com/ReactiveX/RxAndroid</a><br>引入依赖：<br>compile ‘io.reactivex:rxjava:1.0.14’<br>compile ‘io.reactivex:rxandroid:1.0.1’<br>（版本号是文章发布时的最新稳定版）</p>
+<h2 id="Rxjava什么鬼？">Rxjava什么鬼？</h2><blockquote>
+<p>a library for composing asynchronous and event-based programs by using observable sequences for the Java VM. </p>
+</blockquote>
+<p>这是Rxjava在Github<a href="https://github.com/ReactiveX/RxJava" target="_blank" rel="external">主页</a>的一段自白，一个在 Java VM 上使用可观测的序列来组成异步的、基于事件的程序的库。<br>关键词：<strong>异步</strong>、<strong>事件</strong>、<strong>可观测序列</strong>（暂时觉得是一个事件相对另一个事件发生的时间先后）<br>关于更多的Rxjava的介绍和了解可以直接看抛物线大神的<a href="http://gank.io/post/560e15be2dca930e00da1083#toc_11" target="_blank" rel="external">这篇</a>文章，深入浅出，容易理解。  </p>
+<h2 id="Rxjava好在哪">Rxjava好在哪</h2><p>简洁：<strong>随着程序逻辑变得越来越复杂，仍然能保持简洁。</strong>它能把本来要嵌套使用的语句平铺出来，使得代码逻辑看起来比较清晰。<br>异步:Scheduler(调度器)进行线程控制，方便使用异步。<br>Observable:很强大的一个类，看看官方的<a href="http://reactivex.io/RxJava/javadoc/rx/Observable.html" target="_blank" rel="external">Java doc</a>就知道它可以做的东西太多太多……</p>
+<h2 id="Rxjava实战">Rxjava实战</h2><p>好记性不如烂笔头，Rxjava用在Android上的示例可以先参照着这位阿三哥的<a href="https://github.com/kaushikgopal/RxJava-Android-Samples" target="_blank" rel="external">Sample</a>，他没有用java8，是完全Rxjava写的demo，非常适合Rxjava入门和提升在Android中的实战技巧。</p>
+<h2 id="Sample中一些自己的理解">Sample中一些自己的理解</h2><h3 id="Concurrency_using_schedulers">Concurrency using schedulers</h3><p>就是简单的让那些繁重的运算放在非UI线程上的一个demo，没什么好说的。</p>
+<h3 id="Accumulate_calls_(buffer)">Accumulate calls (buffer)</h3><p>通过调用”buffer”运算，使得在2s（程序设定的）中得到的clickEvent转换后的值放进List当中，相当于在2s内缓存运算结果，然后在onNext中对其进行其他操作</p>
+<h3 id="Instant/Auto_searching_(subject_+_debounce)">Instant/Auto searching (subject + debounce)</h3><p>搜索时，你想搜索”Bruce Lee”，你不希望它像B,Br，Bru，Bruc…这样每变动一下就搜索一下吧。debounce可以过滤掉在一定时间范围内前面产生的事件，只保留最后一个的事件，也可以这样说：它过一定的时间才会搜索一次。</p>
+<h3 id="Retrofit_and_RxJava_(zip,_flatmap)">Retrofit and RxJava (zip, flatmap)</h3><p>Retrofit是Square的一个开源网络库，它提供了Rxjava版本的Observable形式API，这个例子中，出现了网络请求中经常发生的情况：网络请求后获得的返回值要作为另外一个网络请求的参数。这种循环嵌套调用的程序，若不是用rxjava来写，则会形成迷之缩进，比较难看清其中的代码逻辑。flatmap把传入参数转化成一个Observable对象。 zip将几个Observable打包成一个Observable。<br>如下图所示，通过flatmap让那些网络请求变成平行的请求，然后通过zip将结果合并成最后的数据输出。</p>
+<pre><code><span class="code">         (flatmap)</span>
+f1 <span class="strong">_____</span><span class="strong">_____</span><span class="strong">_____</span><span class="strong">____ f3 __</span><span class="strong">_____</span>
+<span class="code">         (flatmap)               |    (zip)</span>
+f2 <span class="strong">_____</span><span class="strong">_____</span><span class="strong">_____</span><span class="strong">____ f4 __</span><span class="strong">_____</span>| <span class="strong">_____</span><span class="strong">_____</span>_  final output
+<span class="code">        \                        |</span>
+<span class="code">         \____________ f5 _______|</span>
+</code></pre><h3 id="Double_binding_with_TextViews">Double binding with TextViews</h3><p>自动更新界面，通过PublishSubject建立一个”监听器”，当调用它的onNext方法时，它会”监听”到数据，并执行相关操作。可能很方便的就使用了MVP模式。<br>PS:这样说应该没有问题，但实际就比较复杂（自行google或看源代码，我说不清楚）。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -135,13 +123,13 @@ $ git clone https://github.com/wu">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
+  <a class="article-category-link" href="/categories/Rxjava/">Rxjava</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Hexo主题/">Hexo主题</a>
+  <span></span> <a href="/tags/Rxjava/">Rxjava</a>
   </div>
 
 </div>
@@ -150,7 +138,7 @@ $ git clone https://github.com/wu">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://learnnn.github.io/2015/04/28/Hexo主题/" data-title="Hexo主题 | Learnnn" data-tsina="null" class="share clearfix">
+	  <div data-url="http://learnnn.github.io/2015/11/22/rxjava学习笔记(1)/" data-title="Rxjava学习笔记（1） | Learnnn" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -164,18 +152,18 @@ $ git clone https://github.com/wu">
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/11/22/rxjava学习笔记(1)/" title="Rxjava学习笔记（1）">
+ <a href="/2015/11/23/java回调函数/" title="java回调机制">
   <strong>上一篇：</strong><br/>
   <span>
-  Rxjava学习笔记（1）</span>
+  java回调机制</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/04/28/Hexo添加功能与优化/"  title="Hexo添加功能与优化">
+<a href="/2015/04/28/Hexo主题/"  title="Hexo主题">
  <strong>下一篇：</strong><br/> 
- <span>Hexo添加功能与优化
+ <span>Hexo主题
 </span>
 </a>
 </div>
@@ -184,7 +172,7 @@ $ git clone https://github.com/wu">
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2015/04/28/Hexo主题/" data-title="Hexo主题" data-url="http://learnnn.github.io/2015/04/28/Hexo主题/"></div>
+	<div class="ds-thread" data-thread-key="2015/11/22/rxjava学习笔记(1)/" data-title="Rxjava学习笔记（1）" data-url="http://learnnn.github.io/2015/11/22/rxjava学习笔记(1)/"></div>
 </section>
 
 
@@ -194,7 +182,7 @@ $ git clone https://github.com/wu">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#主题的选择"><span class="toc-number">1.</span> <span class="toc-text">主题的选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jacman的安装启用与跟新"><span class="toc-number">2.</span> <span class="toc-text">Jacman的安装启用与跟新</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">2.1.</span> <span class="toc-text">安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jacman主题的配置"><span class="toc-number">3.</span> <span class="toc-text">Jacman主题的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#自己自定义了的部分"><span class="toc-number">3.1.</span> <span class="toc-text">自己自定义了的部分</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开始之前"><span class="toc-number">1.</span> <span class="toc-text">开始之前</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rxjava什么鬼？"><span class="toc-number">2.</span> <span class="toc-text">Rxjava什么鬼？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rxjava好在哪"><span class="toc-number">3.</span> <span class="toc-text">Rxjava好在哪</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rxjava实战"><span class="toc-number">4.</span> <span class="toc-text">Rxjava实战</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample中一些自己的理解"><span class="toc-number">5.</span> <span class="toc-text">Sample中一些自己的理解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Concurrency_using_schedulers"><span class="toc-number">5.1.</span> <span class="toc-text">Concurrency using schedulers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Accumulate_calls_(buffer)"><span class="toc-number">5.2.</span> <span class="toc-text">Accumulate calls (buffer)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Instant/Auto_searching_(subject_+_debounce)"><span class="toc-number">5.3.</span> <span class="toc-text">Instant/Auto searching (subject + debounce)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Retrofit_and_RxJava_(zip,_flatmap)"><span class="toc-number">5.4.</span> <span class="toc-text">Retrofit and RxJava (zip, flatmap)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Double_binding_with_TextViews"><span class="toc-number">5.5.</span> <span class="toc-text">Double binding with TextViews</span></a></li></ol></li></ol>
  
   </div>
 

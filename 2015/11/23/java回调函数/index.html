@@ -1,0 +1,535 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>java回调机制 | Learnnn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="guang">
+    
+
+    
+    <meta name="description" content="复杂的绕口令（回调的概念）所谓回调:就是A类中调用B类中的某个方法C，然后B类中反过来调用A类中的方法D，D这个方法就叫回调方法。一看到这个绕口令式的概念时心中千只草泥马在奔跑/(ㄒoㄒ)/~~，这真的是什么鬼?太迷惑人了……我自己理解就是A中有B，B中有A，A调用B的方法，然后B再调用A中方法。(好像也有点绕+_+)
+现实类似情况
+大家都喜欢用打电话的例子，好吧，为了跟上时代，我也用这个例子好了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java回调机制">
+<meta property="og:url" content="http://learnnn.github.io/2015/11/23/java回调函数/index.html">
+<meta property="og:site_name" content="Learnnn">
+<meta property="og:description" content="复杂的绕口令（回调的概念）所谓回调:就是A类中调用B类中的某个方法C，然后B类中反过来调用A类中的方法D，D这个方法就叫回调方法。一看到这个绕口令式的概念时心中千只草泥马在奔跑/(ㄒoㄒ)/~~，这真的是什么鬼?太迷惑人了……我自己理解就是A中有B，B中有A，A调用B的方法，然后B再调用A中方法。(好像也有点绕+_+)
+现实类似情况
+大家都喜欢用打电话的例子，好吧，为了跟上时代，我也用这个例子好了">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java回调机制">
+<meta name="twitter:description" content="复杂的绕口令（回调的概念）所谓回调:就是A类中调用B类中的某个方法C，然后B类中反过来调用A类中的方法D，D这个方法就叫回调方法。一看到这个绕口令式的概念时心中千只草泥马在奔跑/(ㄒoㄒ)/~~，这真的是什么鬼?太迷惑人了……我自己理解就是A中有B，B中有A，A调用B的方法，然后B再调用A中方法。(好像也有点绕+_+)
+现实类似情况
+大家都喜欢用打电话的例子，好吧，为了跟上时代，我也用这个例子好了">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Learnnn" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Learnnn" title="Learnnn"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Learnnn">Learnnn</a></h1>
+				<h2 class="blog-motto">Learner Never Narcissism</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+						<form class="search">
+							<label>Search</label>
+						<input type="text" id="ts-search-input" name="q" size="30" placeholder="搜索"><br>
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/11/23/java回调函数/" title="java回调机制" itemprop="url">java回调机制</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="guang" target="_blank" itemprop="author">guang</a>
+		
+  <p class="article-time">
+    <time datetime="2015-11-23T01:10:12.000Z" itemprop="datePublished"> 发表于 2015-11-23</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#复杂的绕口令（回调的概念）"><span class="toc-number">1.</span> <span class="toc-text">复杂的绕口令（回调的概念）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#现实类似情况"><span class="toc-number">2.</span> <span class="toc-text">现实类似情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#我的理解"><span class="toc-number">3.</span> <span class="toc-text">我的理解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A中有B"><span class="toc-number">3.1.</span> <span class="toc-text">A中有B</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B中有A"><span class="toc-number">3.2.</span> <span class="toc-text">B中有A</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#认特点来认人（换个思维来思考）"><span class="toc-number">4.</span> <span class="toc-text">认特点来认人（换个思维来思考）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="复杂的绕口令（回调的概念）">复杂的绕口令（回调的概念）</h2><p>所谓回调:就是A类中调用B类中的某个方法C，然后B类中反过来调用A类中的方法D，D这个方法就叫回调方法。<br>一看到这个绕口令式的概念时心中千只草泥马在奔跑/(ㄒoㄒ)/~~，这真的是什么鬼?太迷惑人了……<br>我自己理解就是<strong>A中有B，B中有A，A调用B的方法，然后B再调用A中方法。</strong>(好像也有点绕+_+)</p>
+<h2 id="现实类似情况">现实类似情况</h2><blockquote>
+<p>大家都喜欢用打电话的例子，好吧，为了跟上时代，我也用这个例子好了，我这个例子采用异步加回调<br>有一天小王遇到一个很难的问题，问题是“1 + 1 = ?”，就打电话问小李，小李一下子也不知道，就跟小王说，等我办完手上的事情，就去想想答案，小王也不会傻傻的拿着电话去等小李的答案吧，于是小王就对小李说，我还要去逛街，你知道了答案就打我电话告诉我，于是挂了电话，自己办自己的事情，过了一个小时，小李打了小王的电话，告诉他答案是2</p>
+</blockquote>
+<h2 id="我的理解">我的理解</h2><blockquote>
+<p>比较经典的回调方式：<br>Class A实现接口CallBack callback——背景1<br>class A中包含一个class B的引用b ——背景2<br>class B有一个参数为callback的方法f(CallBack callback) ——背景3<br>A的对象a调用B的方法 f(CallBack callback) ——A类调用B类的某个方法 C<br>然后b就可以在f(CallBack callback)方法中调用A的方法 ——B类调用A类的某个方法D  </p>
+</blockquote>
+<h3 id="A中有B">A中有B</h3><p>A通常先实现CallBack接口。<br>A中要有B，通常通过实例化B，然后再调用B的方法（通常通过B方法传参传入A（A作为CallBack出传入））。<br>如下列代码形式：</p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public <span class="keyword">interface</span> <span class="type">CallBack</span>&#123;  </span><br><span class="line">	public <span class="type">void</span> <span class="type">AMethod</span>(<span class="type">String</span> <span class="literal">result</span>);  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class A implements <span class="type">CallBack</span> &#123; </span><br><span class="line"></span><br><span class="line">    private B b;   </span><br><span class="line"></span><br><span class="line">    public A(B b)&#123;  </span><br><span class="line">        this.B = b;  </span><br><span class="line">    &#125;  </span><br><span class="line"></span><br><span class="line">    public <span class="type">void</span> askQuestion(final <span class="type">String</span> question)&#123;      </span><br><span class="line">        //调用B的方法（通常运行在非ui线程中，为了简单点省略）</span><br><span class="line">        b.<span class="type">BMethod</span>(A.this, question);     </span><br><span class="line">    &#125;  </span><br><span class="line"></span><br><span class="line">    @<span class="type">Override</span>  </span><br><span class="line">    public <span class="type">void</span> <span class="type">AMethod</span>(<span class="type">String</span> <span class="literal">result</span>) &#123;  </span><br><span class="line">        <span class="type">System</span>.<span class="keyword">out</span>.println(<span class="string">"AMethod---&gt;"</span> + <span class="literal">result</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">      </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="B中有A">B中有A</h3><p>即是上面通过传参传入的A。<br>代码如下：<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class B &#123;   </span><br><span class="line">    public <span class="type">void</span> <span class="type">BMethod</span>(<span class="type">CallBack</span> callBack, <span class="type">String</span> question)&#123;  </span><br><span class="line">        </span><br><span class="line">		长时间的运算...</span><br><span class="line">         </span><br><span class="line">        <span class="type">String</span> <span class="literal">result</span> = <span class="string">"答案是2"</span>; </span><br><span class="line">        //调用A方法</span><br><span class="line">        callBack.<span class="type">AMethod</span>(<span class="literal">result</span>);       </span><br><span class="line">    &#125;  </span><br><span class="line">      </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="认特点来认人（换个思维来思考）">认特点来认人（换个思维来思考）</h2><p>认人通常通过认脸，但遇到双胞胎时，这就使人迷糊了。但是我们可以通过认特点来认出他们。<br>回调可以通过特点来认呢？当然可以。<br>A类实现了一个接口，但是A类没有直接调用这个接口的方法，嘻嘻（自己不用，肯定是给别人用的啦），我开始怀疑是回调了。然后A类中有B类实例，并且调用了它的方法，还传入了A，到这里可以99%肯定用了，最后看看B类中是否调用了A类中的方法，Oh，Bingo！你就是回调了，化成灰都认得出来。。。<br><strong>以上为菜鸟我的一些理解，有错误的地方请指正……</strong></p>
+<h2 id="参考">参考</h2><p><a href="http://blog.csdn.net/xiaanming/article/details/8703708" target="_blank" rel="external">一个经典例子让你彻彻底底理解java回调机制</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/java/">java</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/java/">java</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://learnnn.github.io/2015/11/23/java回调函数/" data-title="java回调机制 | Learnnn" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/11/22/rxjava学习笔记(1)/"  title="Rxjava学习笔记（1）">
+ <strong>下一篇：</strong><br/> 
+ <span>Rxjava学习笔记（1）
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/11/23/java回调函数/" data-title="java回调机制" data-url="http://learnnn.github.io/2015/11/23/java回调函数/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#复杂的绕口令（回调的概念）"><span class="toc-number">1.</span> <span class="toc-text">复杂的绕口令（回调的概念）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#现实类似情况"><span class="toc-number">2.</span> <span class="toc-text">现实类似情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#我的理解"><span class="toc-number">3.</span> <span class="toc-text">我的理解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A中有B"><span class="toc-number">3.1.</span> <span class="toc-text">A中有B</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B中有A"><span class="toc-number">3.2.</span> <span class="toc-text">B中有A</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#认特点来认人（换个思维来思考）"><span class="toc-number">4.</span> <span class="toc-text">认特点来认人（换个思维来思考）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Hexo/" title="Hexo">Hexo<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Hexo添加功能与优化/" title="Hexo添加功能与优化">Hexo添加功能与优化<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Rxjava/" title="Rxjava">Rxjava<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/java/" title="java">java<sup>1</sup></a></li>
+		  
+		
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Hexo主题/" title="Hexo主题">Hexo主题<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo搭建/" title="Hexo搭建">Hexo搭建<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/java/" title="java">java<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Rxjava/" title="Rxjava">Rxjava<sup>1</sup></a></li>
+			
+		
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Android developer,Love life,Love coding <br/>
+			这是我的博客，记录成长点滴</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/learnnn" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="guang">guang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"learnnn"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<script>
+var option = {
+  engineKey: '3670090c26301da31c1f'
+};
+(function(w,d,t,u,n,s,e){
+  s = d.createElement(t);
+  s.src = u;
+  s.async = 1;
+  w[n] = function(r){
+    w[n].opts = r;
+  };
+  e = d.getElementsByTagName(t)[0];
+  e.parentNode.insertBefore(s, e);
+})(window,document,'script','//tinysou-cdn.b0.upaiyun.com/ts.js','_ts');
+_ts(option);
+</script>
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
